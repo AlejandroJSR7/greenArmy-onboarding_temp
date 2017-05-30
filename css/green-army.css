@@ -1,0 +1,243 @@
+
+/*
+  * Variables
+*/
+/* Main Color Green: #66cc33 */
+
+/*
+  * General
+  * Header
+  * Steps Component
+  * Plans
+  * preferred-start-date
+  * CustomTabs
+  * CustomTabs Tab1
+  * CustomTabs Tab2
+  * CustomTabs Tab3
+  * Special Checkbox
+
+  * Media Queries
+  
+  @media(max-width:480px){}
+  @media(max-width:767px){}
+  @media(min-width:768px){}
+  @media(min-width:992px){}
+  @media(min-width:1200px){}
+*/
+
+
+/*
+  * General
+*/
+.body--navbar-fixed-top {
+  padding-top: 50px;
+}
+select {
+  min-width: 100px;
+}
+
+/*
+  * Header
+*/
+
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #f4f4f4;
+}
+.navbar-default .navbar-brand {
+  padding: 0;
+}
+.navbar-default .navbar-brand img {
+  margin-left: 15px;
+  margin-top: 10px;
+  max-width: 180px;
+}
+.navbar-default .navbar-toggle {
+  border: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #66cc33;
+}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  border-radius: 0;
+}
+
+/*
+  * Steps Component
+  @media(min-width:480px){}
+  @media(max-width:480px){}
+  @media(max-width:767px){}
+  @media(min-width:768px){}
+  @media(min-width:992px){}
+  @media(min-width:1200px){}
+*/
+
+.steps-component {
+  padding: 10px;
+}
+.steps-component__tabs {
+  list-style-type: none;
+  margin: 0 0 5px;
+  padding: 0;
+}
+@media(min-width:480px) {
+  .steps-component__tabs {
+    display: table;
+    width: 100%;
+  }
+}
+.steps-component__tabs__item {
+  font-size: 1.1em;
+  line-height: 1;
+  padding-bottom: 5px;
+}
+.steps-component--working
+.steps-component__tabs__item:not(.steps-component__tabs__item--active) a {
+  text-decoration: none;
+  cursor: no-drop;
+  color: red;
+  opacity: 0.55;
+}
+@media(min-width:480px) {
+  .steps-component__tabs__item {
+    padding: 10px 10px 10px 0;
+    display: table-cell;
+  }
+  .steps-component__tabs__item:last-child {
+    padding-right: 0;
+  }
+}
+.steps-component__tabs__item a {
+  display: block;
+}
+.steps-component__tabs__indicator {
+  background-color: red;
+  border-radius: 5px;
+  height: 5px;
+  margin-top: 10px;
+  width: 100%;
+}
+.steps-component__steps {}
+.steps-component__steps__item {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+}
+.steps-component--working
+.steps-component__steps__item:not(.steps-component__steps__item--active) {position: relative;}
+.steps-component--working
+.steps-component__steps__item:not(.steps-component__steps__item--active):after {
+  background-color: transparent;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0.55;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.steps-component__steps__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.steps__item__title {
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 1em;
+  margin-bottom: 5px;
+}
+.steps__item__description {
+  display: inline-block;
+  line-height: 1.1em;
+  margin: 0 0 5px;
+}
+.steps-button {
+  background-color: red;
+  border-radius: 2px;
+  border: 1px solid red;
+  color: white;
+  display: block;
+  line-height: 1;
+  margin-top: 10px;
+  padding: 7px 12px;
+}
+
+/*
+  * Plans
+*/
+.plan {margin-bottom: 10px;}
+.plan__title {
+  margin-bottom: 10px;
+}
+.plan__title__icon {
+  display: inline-block;
+  height: 50px;
+  vertical-align: middle;
+  width: 50px;
+}
+@media(min-width:992px){
+  .plan__title__icon {
+    height: 60px;
+    width: 60px;
+  }
+}
+.plan__title__icon img {
+  display: block;
+  max-width: 100%;
+}
+.plan__title__text {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+@media(min-width:992px){
+  .plan__title__text {
+    font-size: 1.5em;
+  }
+}
+.plan__description {}
+
+/*
+  * preferred-start-date
+*/
+.preferred-start-date {
+  font-size: 1.2em;
+}
+.preferred-start-date:before,
+.preferred-start-date:after {content: ""; display: block; clear: both;}
+.preferred-start-date__text {
+  display: inline-block;
+  font-weight: 600;
+}
+.preferred-start-date__calendar {
+  display: inline-block;
+  float: right;
+}
+.preferred-start-date__calendar .glyphicon {}
+
+/*
+  * CustomTabs
+*/
+.steps-component__steps__item {}
+/*
+  * CustomTabs Tab1
+*/
+.steps-component__steps__item--01 {}
+/*
+  * CustomTabs Tab2
+*/
+.steps-component__steps__item--02 {}
+/*
+  * CustomTabs Tab3
+*/
+.steps-component__steps__item--03 {}
+/*
+  * Special Checkbox
+*/
+.special-checkbox {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 10px;
+}
+.special-checkbox--active {
+  border-color: red;
+}
