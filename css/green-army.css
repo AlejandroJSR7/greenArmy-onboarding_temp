@@ -9,12 +9,15 @@
   * Header
   * Steps Component
   * Plans
+  * Plan Price
   * preferred-start-date
   * CustomTabs
   * CustomTabs Tab1
   * CustomTabs Tab2
   * CustomTabs Tab3
   * Special Checkbox
+  * Information
+  * Promotional Code
 
   * Media Queries
   
@@ -29,6 +32,9 @@
 /*
   * General
 */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
 .body--navbar-fixed-top {
   padding-top: 50px;
 }
@@ -96,7 +102,7 @@ select {
 .steps-component__tabs__item:not(.steps-component__tabs__item--active) a {
   text-decoration: none;
   cursor: no-drop;
-  color: red;
+  color: #60a835;
   opacity: 0.55;
 }
 @media(min-width:480px) {
@@ -109,10 +115,11 @@ select {
   }
 }
 .steps-component__tabs__item a {
+  color: #60a835;
   display: block;
 }
 .steps-component__tabs__indicator {
-  background-color: red;
+  background-color: #60a835;
   border-radius: 5px;
   height: 5px;
   margin-top: 10px;
@@ -152,14 +159,14 @@ select {
   margin: 0 0 5px;
 }
 .steps-button {
-  background-color: red;
-  border-radius: 2px;
-  border: 1px solid red;
+  background-color: #ff6640;
+  border-radius: 5px;
+  border: 1px solid #ff6640;
   color: white;
   display: block;
   line-height: 1;
   margin-top: 10px;
-  padding: 7px 12px;
+  padding: 10px 15px;
 }
 
 /*
@@ -194,8 +201,22 @@ select {
     font-size: 1.5em;
   }
 }
-.plan__description {}
-
+.plan__description {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+/*
+  * Plan Price
+*/
+.plan-price {
+  font-size: 1em;
+  font-weight: 400;
+}
+.plan-price--num {font-size: 1.4em;}
+.plan-price--txt {font-size: 1.2em;}
+.plan-price--small {font-size: 0.75em;}
 /*
   * preferred-start-date
 */
@@ -209,6 +230,8 @@ select {
   font-weight: 600;
 }
 .preferred-start-date__calendar {
+  color: #60a835;
+  cursor: pointer;
   display: inline-block;
   float: right;
 }
@@ -239,5 +262,29 @@ select {
   padding: 10px;
 }
 .special-checkbox--active {
-  border-color: red;
+  border-color: #60a835;
 }
+/*
+  * Informatión
+*/
+.your-info {}
+.your-info h3 {
+  display: inline-block;
+}
+.information__item {
+  margin-bottom: 20px;
+}
+.information__item span {display: block;}
+
+/*
+  * Promotional Code
+*/
+.prom-code {
+  margin-bottom: 20px;
+}
+.prom-code__txt {display: inline-block;}
+.prom-code__toggle {display: inline-block;}
+.prom-code__input {}
+.prom-code__input input {}
+.prom-code__input span {}
+.prom-code__input span button {}

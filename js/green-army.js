@@ -7,20 +7,30 @@ function pageLoaded (event) {
   preferredStartDate();
   // document.getElementById('btnStepSelectPlans').onclick = chooseYourPlan;
   specialCheckboxActive();
+  includeYourInfo(); //with jQuery
+  // promotionalCodeToggle();
 }
 
+// function promotionalCodeToggle() {
+//   var togglePromCode = document.querySelector(".prom-code__toggle");
+//   console.log(togglePromCode);
+// }
+function includeYourInfo() {
+  $('.include-your-info').load('include_your-info.html');
+}
 function specialCheckboxActive() {
   var containerOfPlans = document.getElementById("choose-your-plan");
   var inputCheckbox = containerOfPlans.querySelectorAll('input[type="checkbox"]');
-  inputCheckbox.forEach()
-  inputCheckbox.onclick = function() {
-    var thisCheckbox = this;
-    if(thisCheckbox.checked) {
-      thisCheckbox.closest('.special-checkbox').classList.add('special-checkbox--active');
-    } else {
-      thisCheckbox.closest('.special-checkbox').classList.remove('special-checkbox--active');
-    }
-  };
+  inputCheckbox.forEach(function(_checkbox) {  
+    _checkbox.onclick = function() {
+      var thisCheckbox = this;
+      if(thisCheckbox.checked) {
+        thisCheckbox.closest('.special-checkbox').classList.add('special-checkbox--active');
+      } else {
+        thisCheckbox.closest('.special-checkbox').classList.remove('special-checkbox--active');
+      }
+    };
+  });
 }
 function chooseYourPlan () {
   // var containerOfPlans = document.getElementById("choose-your-plan"),
