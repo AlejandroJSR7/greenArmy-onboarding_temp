@@ -1,0 +1,24 @@
+image: node:4.6.0
+
+# before_script:
+#   - npm config set prefix /usr/local
+#   - npm prune
+#   - npm install
+#   - npm install -g bower
+#   - bower prune --allow-root
+#   - bower install --allow-root
+
+pages:
+  # cache:
+  #   paths:
+  #   - node_modules/
+  #   - bower_components/
+  script:
+    # - npm run build
+    # - mkdir build
+    - mv src public
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
