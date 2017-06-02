@@ -164,9 +164,9 @@ select {
   background-color: #ff6640;
   border-radius: 5px;
   border: 1px solid #ff6640;
-  display: inline-block;
   color: white;
-  display: block;
+  display: inline-block;
+  font-size: 1.2em;
   line-height: 1;
   margin-top: 10px;
   padding: 10px 15px;
