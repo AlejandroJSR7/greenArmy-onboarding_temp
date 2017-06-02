@@ -18,6 +18,7 @@
   * Special Checkbox
   * Information
   * Promotional Code
+  * Expert Checkbox
 
   * Media Queries
   
@@ -288,3 +289,36 @@ select {
 .prom-code__input input {}
 .prom-code__input span {}
 .prom-code__input span button {}
+
+
+/*
+  * Expert Checkbox
+*/
+.select-expert-options {
+  margin: 20px 0;
+}
+.expert-checkbox--active {
+  background-color: greenyellow;
+  color: white;
+}
+.show-expert-options > div, 
+.expert-checkbox {
+  background-color: #dcdcdc;
+  border-radius: 3px;
+  color: gray;
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  position: relative;
+}
+.show-expert-options > div {margin: 0 10px 5px 10px;}
+.show-expert-options > div button {
+  border: none;
+  line-height: 1;
+  color: black;
+  background-color: transparent;
+  margin-left: 10px;
+  font-weight: 100;
+  font-size: 15px;
+}

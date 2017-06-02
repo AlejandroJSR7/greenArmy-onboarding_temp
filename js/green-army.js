@@ -7,17 +7,61 @@ function pageLoaded (event) {
   preferredStartDate();
   // document.getElementById('btnStepSelectPlans').onclick = chooseYourPlan;
   specialCheckboxActive();
-  includeYourInfo(); //with jQuery
   // promotionalCodeToggle();
+  selectOptionsExpertEvaluation();
 }
-
+function selectOptionsExpertEvaluation() {
+  console.log('selectOptionsExpertEvaluation');
+  var selectExpertOptions = document.getElementById('selectExpertOptions');
+  var showExpertOptions = document.getElementById('showExpertOptions');
+  var checkboxOptions = selectExpertOptions.querySelectorAll('input[type="checkbox"]');
+  console.log(showExpertOptions);
+  var templateSelectedOption = function(_value, _valueId) {
+    var newElement = document.createElement("div");
+    newElement.innerHTML = _value;
+    newElement.setAttribute("id", 'check_'+_valueId);
+    var removeSelectedElement = document.createElement("button");
+    removeSelectedElement.setAttribute("class", 'delete-item');
+    removeSelectedElement.innerHTML = "x";
+    newElement.appendChild(removeSelectedElement);
+    return newElement;
+  };
+  function selectOption() {
+    checkboxOptions.forEach(function(_checkbox) {
+      var clonID = _checkbox.getAttribute('id'),
+          clonValue = _checkbox.value;
+      _checkbox.onclick = function() {
+        if(_checkbox.checked) {
+          // if(!_checkbox.closest.classList.contains('expert-checkbox--active')) {
+          //   _checkbox.closest('.expert-checkbox').classList.add('expert-checkbox--active');
+          // } else {
+          //   _checkbox.closest('.expert-checkbox').classList.remove('expert-checkbox--active');
+          // }
+          showExpertOptions.appendChild(templateSelectedOption(clonValue, clonID));
+          deleteItem(_checkbox);
+        } else {
+          document.getElementById('check_'+clonID).remove();
+        }
+      }
+    });
+  }
+  selectOption();
+  function deleteItem(_checkbox) {
+    var deleteItems = document.querySelectorAll('.delete-item');
+    deleteItems.forEach(function(btnDelete) {
+      btnDelete.onclick = function() {
+        this.parentElement.remove();
+        var idToUnchecked = this.parentElement.getAttribute("id").replace(/check_/g,'');
+        selectExpertOptions.querySelector('#'+idToUnchecked).checked = false;
+      };
+    });
+    
+  }
+}
 // function promotionalCodeToggle() {
 //   var togglePromCode = document.querySelector(".prom-code__toggle");
 //   console.log(togglePromCode);
 // }
-function includeYourInfo() {
-  $('.include-your-info').load('include_your-info.html');
-}
 function specialCheckboxActive() {
   var containerOfPlans = document.getElementById("choose-your-plan");
   var inputCheckbox = containerOfPlans.querySelectorAll('input[type="checkbox"]');
@@ -54,7 +98,6 @@ function preferredStartDate() {
   });
   picker.setMoment(moment());
 }
-
 function paymentTabs() {
   function stepsComponentWorking(_stepsComponent, _activeClass) {
     return document.querySelector(".steps-component").classList.contains("steps-component--working");
