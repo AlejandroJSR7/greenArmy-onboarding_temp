@@ -163,6 +163,7 @@ select {
   background-color: #ff6640;
   border-radius: 5px;
   border: 1px solid #ff6640;
+  display: inline-block;
   color: white;
   display: block;
   line-height: 1;
