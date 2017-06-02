@@ -91,6 +91,7 @@ select {
 @media(min-width:480px) {
   .steps-component__tabs {
     display: table;
+    margin-bottom: 50px;
     width: 100%;
   }
 }
