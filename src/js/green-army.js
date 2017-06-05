@@ -9,13 +9,35 @@ function pageLoaded (event) {
   specialCheckboxActive();
   // promotionalCodeToggle();
   selectOptionsExpertEvaluation();
+  customRadioClick();
 }
+
+function customRadioClick() {
+  var customRadios = document.querySelectorAll('.custom-radio input[type="radio"]');
+  customRadios.forEach(function(_customRadio) {
+    _customRadio.onclick = function() {
+      var radioParent = _customRadio.closest('.custom-radio');      
+      var _parentSiblings = radioParent.parentElement.children;
+      var _parentSiblingsWithRadio = [];
+      for(var i = 0; i < _parentSiblings.length; i++) {
+        if(containClass(_parentSiblings[i], 'custom-radio')) {
+          _parentSiblingsWithRadio.push(_parentSiblings[i]);
+        }
+      }
+      if(_customRadio.checked) {
+        _parentSiblingsWithRadio.forEach(function(_parentSibling) {
+          _parentSibling.classList.remove("custom-radio--active");
+          radioParent.classList.add("custom-radio--active");
+        });
+      }
+    };
+  });
+}
+
 function selectOptionsExpertEvaluation() {
-  console.log('selectOptionsExpertEvaluation');
   var selectExpertOptions = document.getElementById('selectExpertOptions');
   var showExpertOptions = document.getElementById('showExpertOptions');
   var checkboxOptions = selectExpertOptions.querySelectorAll('input[type="checkbox"]');
-  console.log(showExpertOptions);
   var templateSelectedOption = function(_value, _valueId) {
     var newElement = document.createElement("div");
     newElement.innerHTML = _value;
@@ -31,12 +53,8 @@ function selectOptionsExpertEvaluation() {
       var clonID = _checkbox.getAttribute('id'),
           clonValue = _checkbox.value;
       _checkbox.onclick = function() {
+        _checkbox.closest('.expert-checkbox').classList.toggle(('expert-checkbox--active'));
         if(_checkbox.checked) {
-          // if(!_checkbox.closest.classList.contains('expert-checkbox--active')) {
-          //   _checkbox.closest('.expert-checkbox').classList.add('expert-checkbox--active');
-          // } else {
-          //   _checkbox.closest('.expert-checkbox').classList.remove('expert-checkbox--active');
-          // }
           showExpertOptions.appendChild(templateSelectedOption(clonValue, clonID));
           deleteItem(_checkbox);
         } else {
@@ -115,10 +133,6 @@ function paymentTabs() {
     }
     stepsItemHide(); // init()
     document.querySelector(".steps-component__steps__item--active").style.display = "block"; // init()
-
-    function containClass(_elm, _findClass) { // hasClass?
-      return _elm.classList.contains(_findClass);
-    }
 
     navItems.forEach(function(_navItem) { // Click on NavItem
       _navItem.onclick = function(e) {
@@ -201,4 +215,8 @@ function paymentTabs() {
 
     document.querySelector(".steps-component__tabs__item--active").click();
   }
+}
+
+function containClass(_elm, _findClass) { // hasClass?
+  return _elm.classList.contains(_findClass);
 }
