@@ -5,11 +5,30 @@ document.addEventListener("DOMContentLoaded", pageLoaded);
 function pageLoaded (event) {
   paymentTabs();
   preferredStartDate();
-  // document.getElementById('btnStepSelectPlans').onclick = chooseYourPlan;
   specialCheckboxActive();
   // promotionalCodeToggle();
   selectOptionsExpertEvaluation();
   customRadioClick();
+  customCheckboxActive();
+}
+
+function customCheckboxActive() {
+  var customCheckboxesArr = document.querySelectorAll('.custom-checkbox-style input[type="checkbox"]');
+  customCheckboxesArr.forEach(function(_customCheck) {
+    _customCheck.onclick = function () {
+      var checkParent = _customCheck.closest('.custom-checkbox-style');
+      if(!containClass(checkParent, 'custom-checkbox-style--active')) {
+        checkParent.classList.add('custom-checkbox-style--active');
+      } else {
+        checkParent.classList.remove('custom-checkbox-style--active');
+      }
+      if(_customCheck.checked) {
+        _customCheck.closest('.special-checkbox').classList.add('special-checkbox--active');
+      } else {
+        _customCheck.closest('.special-checkbox').classList.remove('special-checkbox--active');
+      }
+    };
+  });
 }
 
 function customRadioClick() {
@@ -93,13 +112,6 @@ function specialCheckboxActive() {
       }
     };
   });
-}
-function chooseYourPlan () {
-  // var containerOfPlans = document.getElementById("choose-your-plan"),
-  //     plans = containerOfPlans.querySelectorAll('input[type="checkbox"]'),
-  //     ifCheckAtLeastOne = Array.prototype.slice.call(plans).some(cbx => cbx.checked);
-  //     console.log(ifCheckAtLeastOne);
-  //     if(!ifCheckAtLeastOne) {}
 }
 function preferredStartDate() {
   var picker = new Pikaday(

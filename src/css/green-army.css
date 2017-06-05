@@ -6,6 +6,7 @@
 
 /*
   * General
+  * Helpers
   * Header
   * Steps Component
   * Plans
@@ -21,6 +22,7 @@
   * Expert Checkbox
   * Form
   * Radio Questions
+  * custom-checkbox-style
 
   * Media Queries
   
@@ -74,7 +76,14 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
   line-height: 1;
   margin-bottom: 15px;
 }
-
+/*
+  * Helpers
+*/
+.separator--h {
+  border-bottom: 4px solid #eaeaea;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 /*
   * Header
 */
@@ -104,12 +113,6 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 
 /*
   * Steps Component
-  @media(min-width:480px){}
-  @media(max-width:480px){}
-  @media(max-width:767px){}
-  @media(min-width:768px){}
-  @media(min-width:992px){}
-  @media(min-width:1200px){}
 */
 
 .steps-component {
@@ -156,7 +159,7 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 }
 .steps-component__tabs__indicator {
   background-color: #73bf45;
-  border-radius: 0px;
+  border-radius: 0;
   height: 5px;
   margin-top: 10px;
   width: 100%;
@@ -165,7 +168,7 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 .steps-component__tabs__item:not(.steps-component__tabs__item--active) a .steps-component__tabs__indicator {
   background-color: #cccccc;
 }
-.steps-component__steps {}
+/*.steps-component__steps {}*/
 .steps-component__steps__item {
   border-bottom: 1px solid #dcdcdc;
   padding-bottom: 10px;
@@ -188,8 +191,8 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 }
 .steps__item__title {
   display: inline-block;
-  font-size: 1.2em;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 400;
   line-height: 1em;
   margin-bottom: 20px;
 }
@@ -278,6 +281,7 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
   * preferred-start-date
 */
 .preferred-start-date {
+  display: block;
   font-size: 1.2em;
 }
 .preferred-start-date:before,
@@ -288,42 +292,57 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 }
 .preferred-start-date__calendar {
   color: #73bf45;
-  cursor: 0pxer;
-  display: inline-block;
+  cursor: pointer;
   float: right;
 }
-.preferred-start-date__calendar .glyphicon {}
+/*.preferred-start-date__calendar .glyphicon {}*/
 
 /*
   * CustomTabs
 */
-.steps-component__steps__item {}
+/*.steps-component__steps__item {}*/
 /*
   * CustomTabs Tab1
 */
-.steps-component__steps__item--01 {}
+/*.steps-component__steps__item--01 {}*/
 /*
   * CustomTabs Tab2
 */
-.steps-component__steps__item--02 {}
+/*.steps-component__steps__item--02 {}*/
+.steps-component__steps__item--02 .steps__item__title {
+  margin-bottom: 0;
+}
+.pure-option-checkbox {
+  color: #ff6640;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+}
 /*
   * CustomTabs Tab3
 */
-.steps-component__steps__item--03 {}
+/*.steps-component__steps__item--03 {}*/
 /*
   * Special Checkbox
 */
 .special-checkbox {
+  background-color: #ffffff;
   border: 2px solid transparent;
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 20px;
+}
+.special-checkbox label {
+  padding: 0;
+  width: 100%;
 }
 .special-checkbox--active {
-  border-color: #73bf450px}
+  border-color: #73bf45;
+}
 /*
   * Informatión
 */
-.your-info {}
+/*.your-info {}*/
 .your-info h3 {
   display: inline-block;
 }
@@ -340,10 +359,10 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 }
 .prom-code__txt {display: inline-block;}
 .prom-code__toggle {display: inline-block;}
-.prom-code__input {}
-.prom-code__input input {}
-.prom-code__input span {}
-.prom-code__input span button {}
+/*.prom-code__input {}*/
+/*.prom-code__input input {}*/
+/*.prom-code__input span {}*/
+/*.prom-code__input span button {}*/
 
 
 /*
@@ -364,8 +383,8 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 }
 .expert-checkbox--active {
   background-color: #73bf45;
-  border-color: #0px;
-  color: 0px;
+  border-color: #73bf45;
+  color: #ffffff;
 }
 .expert-checkbox label {
   display: block;
@@ -381,7 +400,7 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
   position: absolute;
 }
 .show-expert-options > div {
-  margin: 0 10px 5px 10px;
+  margin-right: 10px;
   padding: 5px 10px;
 }
 .show-expert-options > div button {
@@ -404,7 +423,7 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 /*
   * * Radio Questions
 */
-.radio-questions {}
+/*.radio-questions {}*/
 .radio-questions .custom-radio {
   padding: 0;
   width: 49%;
@@ -422,7 +441,8 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
   overflow: hidden;
   position: relative;
 }
-.radio-questions .custom-radio label:before {
+.radio-questions .custom-radio label:before,
+.radio-questions .custom-radio label:after {
   background-color: #ffffff;
   border-radius: 50%;
   border: 1px solid #ababab;
@@ -432,9 +452,13 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
   position: absolute;
   width: 20px;
 }
-.radio-questions .custom-radio--active label:before {
+.radio-questions .custom-radio--active label:after {
   background-color: #64ca32;
-  border-color: #ffffff;
+  border: 0px;
+  height: 10px;
+  left: 5px;
+  top: 5px;
+  width: 10px;
 }
 .radio-questions .custom-radio label input[type="radio"] {
   left: 0;
@@ -444,4 +468,48 @@ input[type="number"]:-moz-placeholder { /* Firefox 18- */
 .radio-questions .custom-radio label span {
   font-size: 15px;
   padding-left: 25px;
+}
+
+/*
+  *
+*/
+.custom-checkbox-style {
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid #b7b7b7;
+  display: inline-block;
+  height: 20px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+  width: 20px;
+}
+.custom-checkbox-style label {
+  display: block;
+  height: 100%;
+  padding: 0;
+  width: 100%;
+}
+.custom-checkbox-style--active label:after {
+  background-image: url("../images/design/icons/checked_true.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  display: block;
+  height: calc(100% - 4px);
+  left: 2px;
+  position: absolute;
+  top: 2px;
+  width: calc(100% - 4px);
+}
+.custom-checkbox-style label input[type="checkbox"] {
+  left: 0px;
+  position: absolute;
+  top: 0;
+}
+.custom-checkbox-style--active {
+  background-color: #60a835;
+  border-color: #60a835;
 }
